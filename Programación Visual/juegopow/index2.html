@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego POW</title>
+</head>
+<body style="background-image: url(assets/img/fondo.jpeg); background-size: cover; background-repeat: no-repeat;">
+    <!-- Btns DIV -->
+    <div style="text-align: center; margin-top: 20px;">
+        <h1>ESNORLAX</h1>    
+        <button class="btn-accion" id="btn-comer" style="width: 200px; height: 50px; font-size: 20px; background-color:coral;" >Comer</button>
+        <button class="btn-accion" id="btn-dormir" style="width: 200px; height: 50px; font-size: 20px; background-color:rgb(204, 50, 148);" >Dormir</button>
+        <button class="btn-accion" id="btn-ejercicio" style="width: 200px; height: 50px; font-size: 20px; background-color: chartreuse;">Ejercicio</button>
+    </div>
+    <!-- /btns-->
+    <!-- imagen circular -->
+    <div style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
+        <img src="assets/img/neutral.gif" id="imagen" alt="pow" style="width: 500px; height: 500px; border-radius: 50%;">
+    </div>
+    <!-- /imagen -->
+</body>
+<script>
+
+    let nComer = 0;
+    let nDormir = 0;
+    let nEjercicio = 0;
+        
+    btnComer = document.getElementById('btn-comer');
+    btnDormir = document.getElementById('btn-dormir');
+    btnEjercicio = document.getElementById('btn-ejercicio');
+    
+    btnComer.addEventListener('click', function(){
+        comer();                
+    });
+
+    btnDormir.addEventListener('click', function(){
+        dormir();        
+    });
+
+    btnEjercicio.addEventListener('click', function(){
+        ejercicio();        
+    });
+
+
+    /**
+     * Neutral
+     */
+    function neutral(){
+        document.getElementById('imagen').src = "assets/img/neutral.gif";
+    }
+
+    /**
+     * Comer
+     */
+     function comer(){        
+        if(nComer < 2){
+            nComer++;            
+            document.getElementById('imagen').src = "assets/img/comer.gif";                        
+            temporizador();
+        }else{            
+            document.getElementById('imagen').src = "assets/img/explotar.jpeg";
+            ocultarBotones();
+            alert("¡Esnorlax exploto!")
+        }        
+    }
+
+    /**
+     * dormir
+     */
+    function dormir(){
+        document.getElementById('imagen').src = "assets/img/dormir.gif";
+        temporizador();
+    }
+
+    /**
+     * ejercicio
+     */
+    function ejercicio(){
+        document.getElementById('imagen').src = "assets/img/ejercicio.gif";
+        temporizador();
+    }
+
+    /*
+    * Ocultar botones
+    */
+    function ocultarBotones(){
+        // Esconder boton
+        btnComer.style.display = "none";
+        btnDormir.style.display = "none";
+        btnEjercicio.style.display = "none";
+    }
+
+    /*
+    * Mostrar botones
+    */
+    function mostrarBotones(){
+        btnComer.style.display = "inline";
+        btnDormir.style.display = "inline";
+        btnEjercicio.style.display = "inline";
+    }
+
+    /*
+    * Timer
+    */
+   function temporizador(){
+       ocultarBotones();
+        setTimeout(function(){
+            neutral();
+            mostrarBotones();
+        }, 5000);    
+   }
+</script>
+</html>

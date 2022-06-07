@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego POW</title>
+</head>
+<body style="background-image: url(assets/img/fondo.jpeg); background-size: cover; background-repeat: no-repeat;">
+    <!-- Btns DIV -->
+    <div style="text-align: center; margin-top: 20px;">
+        <h1>Juego POW</h1>    
+        <button id="comer" style="width: 200px; height: 50px; font-size: 20px; background-color:coral;" >Comer</button>
+        <button id="dormir" style="width: 200px; height: 50px; font-size: 20px; background-color:rgb(204, 50, 148);" >Dormir</button>
+        <button id="ejercicio" style="width: 200px; height: 50px; font-size: 20px; background-color: chartreuse;">Ejercicio</button>
+    </div>
+    <!-- /btns-->
+    <!-- Imagen -->
+    <div style="text-align: center; margin-top: 50px;">
+        <img src="assets/img/neutral.gif" id="imagen" alt="pow" style="width: 500px; height: 500px;">
+    </div>
+    <!-- /imagen -->
+</body>
+<script>
+
+    let nComer = 0;
+    let nDormir = 0;
+    let nEjercicio = 0;
+
+    // Comenzar
+    btnComer = document.getElementById('comer');
+    btnDormir = document.getElementById('dormir');
+    btnEjercicio = document.getElementById('ejercicio');
+
+    /**
+     * Comer
+     */
+    btnComer.addEventListener('click', function(){
+        // Cambiar imagen
+        document.getElementById('imagen').src = "assets/img/comer.gif";
+        // Cambiar btn        
+    });
+
+    /**
+     * Dormir
+     */
+    btnDormir.addEventListener('click', function(){
+        // Cambiar imagen
+        document.getElementById('imagen').src = "assets/img/dormir.gif";
+    });
+
+    /**
+     * Ejercicio
+     */
+    btnEjercicio.addEventListener('click', function(){
+        // Cambiar imagen
+        document.getElementById('imagen').src = "assets/img/ejercicio.gif";
+    });
+
+    /**
+     * Neutral
+     */
+    function neutral(){
+        document.getElementById('imagen').src = "assets/img/neutral.gif";
+    }
+</script>
+</html>

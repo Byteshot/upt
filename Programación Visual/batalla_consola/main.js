@@ -1,0 +1,1 @@
+let tablero = new Tablero();

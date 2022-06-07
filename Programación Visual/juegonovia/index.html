@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quieres ser mi novia</title>
+</head>
+<body>
+    <!-- Centrar botones a media pantalla-->
+    <div style="text-align: center; margin-top: 15%;">
+        <button id="btn-aceptar" style="background-color: #00bcd4; color: white; border-radius: 5px; padding: 10px;">¡Claro que sí!</button>
+        <button id="btn-cancelar" style="background-color: #d4000b; color: white; border-radius: 5px; padding: 10px;">¡Claro que no!</button>
+    </div>    
+</body>
+<script>
+
+    var contador = 0;
+
+    var btnAceptar = document.getElementById('btn-aceptar');
+    var btnCancelar = document.getElementById('btn-cancelar');
+
+    // Evento click del botón aceptar
+    btnAceptar.addEventListener('click', function() {
+        // Redireccionamos a la página de confirmación
+        aceptar();
+    });
+
+    // Evento mover del botón cancelar al poner el mouse encima
+    btnCancelar.addEventListener('mouseover', function() {
+        // Redireccionamos a la página de confirmación
+        cancelar();
+    });
+
+    /*
+    * Mandar alerta
+    */
+    function aceptar() {
+        alert('Dame un besito');
+    }
+
+    /*
+    * Mover el botón cancelar a cualquier lugar de la página
+    */
+    function cancelar() {
+        // -- Resolución de la pantalla
+        let x = window.innerWidth - btnCancelar.offsetWidth;
+        let y = window.innerHeight - btnCancelar.offsetHeight;
+        
+        // -- número aleatorio entre 0 y la resolución de la pantalla   
+        let aleatorioX = Math.floor(Math.random() * x);
+        let aleatorioY = Math.floor(Math.random() * y);
+
+        btnCancelar.style.position = 'absolute';
+        btnCancelar.style.top = aleatorioY + 'px';
+        btnCancelar.style.left = aleatorioX + 'px';
+
+        // -- llamar a función de alerta
+        mostrarAlerta();
+    }
+
+    /*
+    * Mandar alerta
+    */
+    function mostrarAlerta() {
+        contador++;
+        if(contador == 5) {
+            alert('No te hagas del rogar y dime que si');
+            contador++;
+        }     
+    }
+</script>
+</html>
