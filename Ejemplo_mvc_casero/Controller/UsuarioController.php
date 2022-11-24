@@ -8,6 +8,16 @@ include "Models/Usuario.php";
 class UsuarioController
 {
 
+    public function inicio()
+    {
+        require_once "Views/inicio.php";
+    }
+
+    public function despedir()
+    {
+        echo "Adios $_POST[nombre]";
+    }
+
     public function createAlum()
     {
         if (isset($_POST)) {

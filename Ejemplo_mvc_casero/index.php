@@ -8,13 +8,19 @@
  */
 
 // -- Verifica que se le pasen valores
-if (isset($_GET["controller"]) && isset($_GET["action"]) != null) {
+if (isset($_GET["controller"])) {
 
     header("Access-Control-Allow-Origin: *");
 
     $controlador = $_GET["controller"];
-    $accion = $_GET["action"];
 
+    if(isset($_GET["action"])){
+        $action = $_GET["action"];
+    }else{
+        $action = "inicio";
+    }
+
+    $accion = $action;
     // -- Concatena
     $controladorClass = $controlador . "Controller";
     // -- Solicitar el archivo
